@@ -1,0 +1,25 @@
+#form{
+    width: 400px;
+    border:1px solid  rgb(230,230,230);
+    margin:3% auto;
+    padding:3%;
+    background:white;
+}
+
+input,
+select{
+    display: block;
+    margin: 15px 0px;
+    font-size: 20px;
+    padding: 2%;
+}
+option{
+    font-size: 25px;
+}
+
+#links{
+    display:flex;
+    justify-content: space-evenly;
+    box-shadow: 2px 2px 5px rgb(235,235,235);
+    /* border: 1px solid black; */
+}

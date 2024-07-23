@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formTag">
+    <input type="text" id="name" placeholder="name"/>
+    <input type="text" id="age" type="number" placeholder="enter age">
+    <select name="" id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <input type="submit">
+    </form>
+    
+
+    
+</body>
+</html>
+<script>
+    //points for using form
+    //1.wrap every input inside form tag which is more readable
+    //2.instead of taking button we use input tag with type="submit"
+    //3.add eventListener to form tag with "submit" event.
+    //4.whenever you use forms,it will try to send data to database in this process page getting refreshed-->it is default behaviour
+    //5.we should prevent that default behaviour->event.preventDefault()
+    document.querySelector("#formTag").addEventListener("submit", submitFn);
+
+    function submitFn(){
+        event.preventDefault();
+        let name = document.querySelector("input").value;
+        let age = document.querySelector("#age").value;
+        let gender=document.querySelector("#gender").value;
+        console.log(name,age,gender);
+    }
+</script>

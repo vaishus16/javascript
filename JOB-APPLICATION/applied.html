@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied jobs</title>
+    <link rel="stylesheet" href="commonstyle.css">
+</head>
+<body>
+    <div id="links">
+        <div><a href="./index.html">Home</a></div>
+        <div><a href="./applied.html">Applied Jobs</a></div>
+        <div><a href="./bookmark.html">Bookmarks</a></div>
+    </div>
+
+    <!--sort-->
+
+    <select id="sortSalary" onchange="handleSalarySort()">
+        <option value="">sort by name</option>
+        <option value="HTL">high to low</option>
+        <option value="LTH">low to high</option>
+    </select>
+
+    <select id="filterRole" onchange="handleFilter()">
+        <option value="">Filter category</option>
+        <option value="FSD">FSD</option>
+        <option value="Frontend">Frontend</option>
+        <option value="BACKEND">BACKEND</option>
+    </select>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Job Applied</th>
+                <th>Salary</th>
+                <th>Add to Bookmark</th>
+
+            </tr>
+        </thead>
+        <tbody id="body">
+
+        </tbody>
+    </table>
+</body>
+</html>
+<script>
+     let Data = JSON.parse(localStorage.getItem("jobApplication"));
+    function handleFilter(){
+        let selected=document.getElementById("filterRole").value
+        let filteredData=Data.filter(function(element){
+            return element.role==selected;
+        })
+        console.log(filteredData);
+        displayData(filteredData);
+
+     }   
+
+
+     function handleSalarySort(){
+        let selected=document.getElementById("sortSalary").value;
+        if(selected=="HTL"){
+            Data.sort(function(a,b){
+                return b.salary-a.salary;
+            })
+            displayData(Data);
+        }
+        else{
+            Data.sort(function(a,b){
+                return a.salary-b.salary;
+            })
+            displayData(Data);
+        }
+     }
+     
+
+
+
+
+   
+    let tbody = document.querySelector("tbody");
+
+    let bookMarkArray = JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+    displayData(Data)
+    function displayData(Data){
+        document.querySelector("tbody").innerHTML = " ";
+        Data.forEach(function(element){
+            let tr = document.createElement("tr");
+
+            let name = document.createElement("td");
+            let email = document.createElement("td");
+            let role = document.createElement("td");
+            let salary = document.createElement("td");
+            let  bookmark = document.createElement("td");
+
+            name.innerText = element.name;
+            email.innerText = element.email;
+            role.innerText = element.role;
+            salary.innerText = element.salary;
+            bookmark.innerText="Bookmark";
+
+            bookmark.addEventListener("click", function(){
+                bookmarkFun(element)
+            })
+           
+            tr.append(name,email,role, salary, bookmark);
+
+            tbody.append(tr);
+
+        })
+
+        function bookmarkFun(element){
+            bookMarkArray.push(element);
+            localStorage.setItem("bookmarks", JSON.stringify(bookMarkArray));
+        }
+    }
+
+</script>

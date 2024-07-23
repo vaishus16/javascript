@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="age">
+    <button onclick="submitFunction()">submit</button>
+    <h1>eligible for voting</h1>
+    <p id="output">output</p>
+</body>
+</html>
+<script>
+    function submitFunction(){
+        let age  = document.getElementById("age").value;
+        if(age.length==0){
+            document.getElementById("output").innerText="please enter age";
+            document.getElementById("output").style="color: red";
+        }else if(age==18){
+            document.getElementById("output").innerText="just eligible";
+            document.getElementById("output").style="color: green";
+        }else if(age>18){
+            document.getElementById("output").innerText="eligible";
+            document.getElementById("output").style="color: green";
+        }else{
+            document.getElementById("output").innerText="not eligible";
+            document.getElementById("output").style="color: red";
+        }
+    }
+</script>

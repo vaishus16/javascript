@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>job application</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="links">
+        <div><a href="./index.html">Home</a></div>
+        <div><a href="./applied.html">Applied Jobs</a></div>
+        <div><a href="./bookmark.html">Bookmarks</a></div>
+    </div>
+    <form action="" id="form">
+        <h2>Enter your Application</h2>
+        <input type="text" placeholder="Enter Name" id="name">
+        <input type="email" placeholder="Enter email" id="email">
+        <select name="role" id="role">
+            <option value="FSD">FSD</option>
+            <option value="Backend">Backend</option>
+            <option value="Frontend">Frontend</option>
+        </select>
+        <input type="number" placeholder="Enter Expected Salary" id="Salary" >
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit",myFunction);
+    let jobArray= JSON.parse(localStorage.getItem("jobApplication")) ||[];
+    function myFunction(){
+        event.preventDefault();
+        let object={
+            name:document.querySelector("#name").value,
+            email:document.querySelector("#email").value,
+            role:document.querySelector("#role").value,
+            salary:document.querySelector("#Salary").value
+        }
+        jobArray.push(object);
+
+        localStorage.setItem("jobApplication",JSON.stringify(jobArray))
+    }
+    //local storage-->number/string;
+    //setItem
+    //localStorage.setItem("phoneNumber",123456)
+
+    //getItem-->access
+    //let data=localStorage.getItem("phoneNumber");
+    //console.log(data);
+
+    //JSON.stringify-->it will keep the datatype same;
+    //localStorage.setItem("array",JSON.stringify([1,2,3,4,5]));
+    //let arrayData=JSON.parse(localStorage.getItem("array"));
+    //console.log(typeof(arrayData));
+    //JSON.parse
+</script>
+

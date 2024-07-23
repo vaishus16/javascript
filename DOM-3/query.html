@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>iam p6</p>
+    <div id="box">Iam div</div>
+    <div class="head1">Iam div</div>
+    <h1 class="head1">iam heading</h1>
+    <p>p1</p>
+    <p>p2</p>
+    <p>p3</p>
+    <p>p4</p>
+    <p>p5</p>
+
+</html>
+<script>
+    let div=document.getElementById("box");
+    console.log(div);
+
+    let container=document.querySelector("#box");
+    console.log("container",container);
+
+    let classContainer=document.querySelectorAll(".head1");
+    console.log(classContainer);
+
+    let tagContainer=document.querySelectorAll("p");
+    console.log(tagContainer);
+
+    //querySelector will select only the first element which matches the query
+    //querySelectorAll will select all the elements which match the query
+</script>

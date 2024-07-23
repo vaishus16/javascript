@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="firstName">first name</h1>
+    <h2 id="lastName">last name</h2>
+    <h3 id="location">location</h3>
+    <hr>
+    <p id="output">here is the output</p>
+    <hr>
+    <button onclick="firstNameFunction()">firstName</button>
+    <button onclick="lastNameFunction()">lastName</button>
+    <button onclick="firstNameLastNameFunction()">firstName +lastName</button>
+    <button onclick="locationFunction()">location</button>
+</body>
+</html>
+<script>
+    
+   
+ 
+function firstNameFunction(){
+    document.getElementById("output").innerText= document.getElementById("firstName").innerText
+    
+    
+}
+function lastNameFunction(){
+    document.getElementById("output").innerText= document.getElementById("lastName").innerText
+}
+function firstNameLastNameFunction(){
+document.getElementById("output").innerText= document.getElementById("firstName").innerText +" "+ document.getElementById("lastName").innerText;
+}
+function locationFunction(){
+    // console.log(document.getElementById("firstName").innerText)
+    document.getElementById("output").textContent= document.getElementById("location").innerText
+}
+
+
+
+    
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name" placeholder="name"/>
+    <input type="text" id="age" type="number" placeholder="enter age">
+    <select name="" id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <button>submit</button>
+
+    
+</body>
+</html>
+<script>
+    document.querySelector("button").addEventListener("click", submitFn);
+
+    function submitFn(){
+        let name = document.querySelector("input").value;
+        let age = document.querySelector("#age").value;
+        let gender=document.querySelector("#gender").value;
+        console.log("name",name);
+        console.log("age",age);
+        console.log("gender",gender);
+    
+    }
+</script>

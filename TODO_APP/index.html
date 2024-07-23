@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="create">
+        <h1>Add products</h1>
+        <form action="" id="form">
+          <input type="text" placeholder="product name" id="name">
+            <select id="category">
+                <option value="">product category</option>
+                <option value="grocery">grocery</option>
+                <option value="electronic">electronic</option>
+                <option value="fashion">fashion</option>
+                <option value="home applications">home applications</option>
+            </select>
+          <input type="text" id="brand" placeholder="brand">
+          <input type="number" id="price" placeholder="price">
+          <select id="deliveredBy">
+            <option value="">Delivered By</option>
+            <option value="DTDC">DTDC</option>
+            <option value="Zepto">Zepto</option>
+            <option value="blueDart">blueDart</option>
+          </select>
+          <input type="submit">
+        </form>
+    </div>
+    <!--this is the h1 tag for showing total price-->
+    <h1 id="total-price">total price-0</h1>
+    <table border="1" cellspacing="0">
+        <thead>
+            <tr>
+                <th>product name</th>
+                <th>category</th>
+                <th>brand</th>
+                <th>Delivered By</th>
+                <th>price</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- here you will be appending the data as tr-td when the form gets submitted -->
+        </tbody>
+    </table>
+</body>
+</html>
+
+<script>
+    document.querySelector("#form").addEventListener("submit",submitForm);
+    let totalPrice=0;
+    let array=[];
+    function submitForm(){
+        event.preventDefault();
+        let object={
+            pName:document.querySelector("#name").value,
+            pCategory:document.querySelector("#category").value,
+            pBrand:document.querySelector("#brand").value,
+            pPrice:document.querySelector("#price").value,
+            pDeliveredBy:document.querySelector("#deliveredBy").value,
+        }
+        array.push(object);
+
+
+        document.querySelector("tbody").innerHTML="";
+        document.querySelector("#total-price").innerText
+        array.map(function(element){
+            let tr=document.createElement("tr");
+            let td1=document.createElement("td");
+            let td2=document.createElement("td");
+            let td3=document.createElement("td");
+            let td4=document.createElement("td");
+            if(element.pPrice>100){
+                td4.style="color:red"
+            }
+            else{
+                td4.style="color:green"
+            }
+            let td5=document.createElement("td");
+            let td6=document.createElement("button");
+
+            td1.innerText=element.pName
+            td2.innerText=element.pCategory
+            td3.innerText=element.pBrand
+            td4.innerText=element.pPrice
+            totalPrice=totalPrice+Number(element.pPrice);
+            document.querySelector("#total-price").innerText=totalPrice;
+            td5.innerText=element.pDeliveredBy
+            td6.innerText="Delete"
+            td6.style="cursor:pointer"
+            td6.addEventListener("click",deleteTodo);
+            function deleteTodo(){
+                // console.log(event.target.parentNode.remove());
+                event.target.parentNode.remove()
+                
+                //here we are targeting particular row and deleting it
+                totalPrice=totalPrice-Number(element.pPrice);
+                document.querySelector("#total-price").innerText=totalPrice; 
+            }
+        tr.append(td1,td2,td3,td5,td4,td6);
+        document.querySelector("tbody").append(tr);
+            })
+        
+    }
+</script>

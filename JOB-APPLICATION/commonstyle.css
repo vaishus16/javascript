@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#links{
+    display:flex;
+    justify-content: space-evenly;
+    box-shadow: 2px 2px 5px rgb(235,235,235);
+    /* border: 1px solid black; */
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table{
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    border-collapse: collapse;
+}
+
+td, th{
+    padding: 15px;
+}
+
+tr>th{
+    background-color: teal;
+    color: white;
+}

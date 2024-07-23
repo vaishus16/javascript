@@ -1,0 +1,39 @@
+<!-- //html: we target tag in js
+//getElementById
+//getElementByIdByClassName
+//querySelector
+//querySelectorAll
+//we create tags in js and put it inside html -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+</body>
+</html>
+<script>
+    
+        let heading=document.createElement("h1");
+        heading.innerText="this is heading tag from js";
+        let body=document.querySelector("body");
+        let p=document.createElement("p");
+        p.innerText="this is p tag from js";
+        let form=document.createElement("form");
+        let input=document.createElement("input");
+        input.setAttribute("type","number");
+        form.setAttribute("id","formTag");
+        form.append(input);
+        
+        body.append(heading,p,form);
+        console.log(heading,p,form);
+        
+    
+</script>
